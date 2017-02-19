@@ -1,0 +1,12 @@
+adminview
+context
+createview
+deleteview
+detailview
+dispatch
+listview
+stackedinline
+tabularinline
+templateview
+updateview
+view

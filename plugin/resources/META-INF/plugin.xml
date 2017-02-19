@@ -1,0 +1,79 @@
+<idea-plugin version="2">
+    <id>pw.mcclure.djaneiro.pycharm</id>
+    <name>Djaneiro for PyCharm</name>
+    <version>1.2</version>
+    <vendor email="jetbrains@mcclure.pw" url="https://www.mcclure.pw">Brian McClure</vendor>
+
+    <description><![CDATA[
+      <p>This was originally a pure port of the Djaneiro plugin for Sublime Text,
+      but new features have been added not found in the original plugin.</p>
+      <p>It's a collection of live templates for common patterns encountered
+      when building Django applications (with a couple generic python uses) specifically
+    useful for models, forms, widgets, views, and templates.
+
+    <p>For example, the following expansions for models and forms can be made:
+    </p>
+
+    <pre><code>
+    mchar&lt;TAB--> $FIELDNAME$ = models.CharField($name$ , max_length=50)$END$
+    fchar&lt;TAB--> $FIELDNAME$ = forms.CharField($ARGS$)$END$
+    </code></pre>
+
+    <p>Where each variable between dollar signs($) (e.g., $FIELDNAME$, $NAME$, etc)
+    is a stopping point for the cursor each time enter is pressed.</p>
+
+    <p> The abbreviations generally adhere to the following conventions:
+
+    <ul>
+        <li>Model field templates are prefixed by 'm' with the exception of `fk`,
+        `m2m`, and `o2o` fields</li>
+        <li>Form field templates are prefixed by 'f'</li>
+        <li>Widgets are prefixed by 'w'</li>
+        <li>Settings are prefixed by 's'</li>
+        <li>Template templates have no prefix, nor do generic python templates</li>
+    </ul>
+
+    </p>
+
+    <p>
+    For a full listing of the abbreviations, see the github repo:
+    <a href='https://github.com/brmc/pycharm-djaneiro/tree/master/docs'>
+    https://github.com/brmc/pycharm-djaneiro/tree/master/docs</a>
+    </p>
+
+    ]]></description>
+
+    <change-notes><![CDATA[
+    v1.2 -
+    <ul>
+        <li>Added live templates for django settings</li>
+        <li>Migrated to python 3.6 with no plans for backwards compatibility</li>
+        <li>fixed bug in postgres fields. they no longer expand to one giant variable</li>
+        <li>removed duplication of `fip`</li>
+    </ul>
+
+    v1.1 -
+    <ul>
+        <li>Updated templates from upstream</li>
+        <li>Included missing fields for models and forms</li>
+        <li>Added Postgres model and form fields</li>
+        <li>Added Widgets</li>
+        <li>Added transpiler to convert between sublime text and jetbrains</li>
+    </ul>
+    v1.0 -
+    <ul>
+        <li>No changes since I originally commited to my github repo, which means there
+        is no support for new fields added in the last 2 years.</li>
+    </ul>
+    ]]>
+    </change-notes>
+
+    <idea-version since-build="141.0"/>
+
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <defaultLiveTemplatesProvider implementation="DjangoTemplateProvider"/>
+    </extensions>
+
+</idea-plugin>
