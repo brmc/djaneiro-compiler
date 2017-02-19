@@ -1,3 +1,6 @@
 [submodule "pycharm"]
 	path = pycharm
 	url = https://github.com/brmc/pycharm-djaneiro
+[submodule "sublime"]
+	path = sublime
+	url = git@github.com:squ1b3r/Djaneiro.git
